@@ -1,0 +1,10 @@
+.input__section{
+    margin-top: 5%;
+    text-align: center;
+}
+.inputValue{
+    padding: 10px 70px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(216, 216, 216);
+}
