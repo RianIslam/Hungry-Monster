@@ -1,10 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .input__section{
-    margin-top: 5%;
+    margin-top: 3%;
     text-align: center;
 }
 .inputValue{
-    padding: 10px 70px;
+    height: 50px;
+    width: 600px;
     border-radius: 10px;
     border: none;
-    background-color: rgb(216, 216, 216);
+    background-color: #d8d8d8;
+    font-size: 20px;
+    padding: 10px 10px;
+}
+.foodBtn{
+    height: 50px;
+    width: 100px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: #ff5200;
+    color: white;
+    border: none;
+}
+
+#foods{
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 30px;
+}
+.food__name{
+    padding: 20px;
+    text-align: center;
+    font-size: 45px;
+    color: magenta;
 }
