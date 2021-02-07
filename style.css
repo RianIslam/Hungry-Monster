@@ -3,6 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+h1{
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+}
+p,h2,h3,h4,li{
+    font-family: 'Roboto', sans-serif;
+}
 .input__section{
     margin-top: 3%;
     text-align: center;
