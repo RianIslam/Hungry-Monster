@@ -1,56 +1,37 @@
 const button = document.getElementById("mealBtn");
-const inputValue = document.getElementById('inputMeal');
+const inputValue = document.getElementById("inputMeal");
 button.addEventListener("click", function () {
-    fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=f")
+  fetch(
+    "https://www.themealdb.com/api/json/v1/1/search.php?s=" +
+      inputValue.value +
+      ""
+  )
     .then((res) => res.json())
     .then((data) => displayfoods(data));
 });
 
 const displayfoods = (meal) => {
-  // console.log(meal.categories[0].strCategory)
   const mealItem = meal.meals;
 
-  const ul = document.getElementById('foods')
-
-
+  const searchDiv = document.getElementById("foods");
 
   for (let i = 0; i < mealItem.length; i++) {
     const food = mealItem[i];
 
-    const countryDiv = document.createElement('div');
-    const countryInfo =`
-    <h3 class="food__name">${food.strCategory}</h3>
-    <h3 class="food__name">${food.strMeal}</h3>
-    <button onclick="displayDetails('${food.strMeal}')">details</button>
+    const mealDiv = document.createElement("div");
+    const mealInfo = `
+    <img onclick="displayFood('<img src=${food.strMealThumb}><h1>${food.strMeal}</h1><li>${food.strIngredient1}</li><li>${food.strIngredient2}</li><li>${food.strIngredient3}</li><li>${food.strIngredient4}</li><li>${food.strIngredient5}</li><li>${food.strIngredient6}</li><li>${food.strIngredient7}</li> <li>${food.strIngredient8}</li> <li>${food.strIngredient9}</li> <li>${food.strIngredient10}</li>')" src=${food.strMealThumb}>
+    <h4 onclick="displayFood('<img src=${food.strMealThumb}><h1>${food.strMeal}</h1><li>${food.strIngredient1}</li><li>${food.strIngredient2}</li><li>${food.strIngredient3}</li><li>${food.strIngredient4}</li><li>${food.strIngredient5}</li><li>${food.strIngredient6}</li><li>${food.strIngredient7}</li> <li>${food.strIngredient8}</li> <li>${food.strIngredient9}</li> <li>${food.strIngredient10}</li>')" class="food__name">${food.strMeal}</h4>
 
     `;
-    countryDiv.innerHTML = countryInfo;
-    ul.appendChild(countryDiv);
-
-
-
-
-    // const li =document.createElement('li');
-    // li.innerText = food.strCategory; 
-    // ul.appendChild(li)
-    // console.log(food.strCategory);
+    mealDiv.innerHTML = mealInfo;
+    searchDiv.appendChild(mealDiv);
   }
 };
 
-
-const displayDetails = name =>{
-    const url =  `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`
-    fetch(url)
-    .then(res => res.json())
-    .then(data => mealMake(data[0]));
-    
-}
-
-const mealMake = food =>{
-
-    const foodDiv = document.getElementById('foodDetails');
-    foodDiv.innerHTML =`
-    <h1>${food.strMealThumb}</h1>
-    `
-
-}
+const displayFood = (name) => {
+  const selectFood = document.getElementById("foodDetails");
+  selectFood.innerHTML = `
+   ${name}
+   `;
+};
